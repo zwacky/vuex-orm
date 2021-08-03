@@ -133,7 +133,7 @@ export default class Model {
    * Create a has one relationship.
    */
   static hasOne(
-    related: typeof Model | string,
+    related: typeof Model,
     foreignKey: string,
     localKey?: string
   ): Attributes.HasOne {
@@ -149,7 +149,7 @@ export default class Model {
    * Create a belongs to relationship.
    */
   static belongsTo(
-    parent: typeof Model | string,
+    parent: typeof Model,
     foreignKey: string,
     ownerKey?: string
   ): Attributes.BelongsTo {
@@ -165,7 +165,7 @@ export default class Model {
    * Create a has many relationship.
    */
   static hasMany(
-    related: typeof Model | string,
+    related: typeof Model,
     foreignKey: string,
     localKey?: string
   ): Attributes.HasMany {
@@ -181,7 +181,7 @@ export default class Model {
    * Create a has many by relationship.
    */
   static hasManyBy(
-    parent: typeof Model | string,
+    parent: typeof Model,
     foreignKey: string,
     ownerKey?: string
   ): Attributes.HasManyBy {
@@ -197,8 +197,8 @@ export default class Model {
    * Create a has many through relationship.
    */
   static hasManyThrough(
-    related: typeof Model | string,
-    through: typeof Model | string,
+    related: typeof Model,
+    through: typeof Model,
     firstKey: string,
     secondKey: string,
     localKey?: string,
@@ -219,8 +219,8 @@ export default class Model {
    * Create a belongs to many relationship.
    */
   static belongsToMany(
-    related: typeof Model | string,
-    pivot: typeof Model | string,
+    related: typeof Model,
+    pivot: typeof Model,
     foreignPivotKey: string,
     relatedPivotKey: string,
     parentKey?: string,
@@ -248,7 +248,7 @@ export default class Model {
    * Create a morph one relationship.
    */
   static morphOne(
-    related: typeof Model | string,
+    related: typeof Model,
     id: string,
     type: string,
     localKey?: string
@@ -266,7 +266,7 @@ export default class Model {
    * Create a morph many relationship.
    */
   static morphMany(
-    related: typeof Model | string,
+    related: typeof Model,
     id: string,
     type: string,
     localKey?: string
@@ -284,8 +284,8 @@ export default class Model {
    * Create a morph to many relationship.
    */
   static morphToMany(
-    related: typeof Model | string,
-    pivot: typeof Model | string,
+    related: typeof Model,
+    pivot: typeof Model,
     relatedId: string,
     id: string,
     type: string,
@@ -308,8 +308,8 @@ export default class Model {
    * Create a morphed by many relationship.
    */
   static morphedByMany(
-    related: typeof Model | string,
-    pivot: typeof Model | string,
+    related: typeof Model,
+    pivot: typeof Model,
     relatedId: string,
     id: string,
     type: string,
@@ -645,7 +645,7 @@ export default class Model {
   /**
    * Get a model from the container.
    */
-  static relation(model: typeof Model | string): typeof Model {
+  static relation(model: typeof Model): typeof Model {
     if (typeof model !== 'string') {
       return model
     }
